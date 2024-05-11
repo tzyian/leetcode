@@ -1,0 +1,12 @@
+// https://leetcode.com/problems/customers-who-never-order
+
+import pandas as pd
+
+def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
+    orders = orders.drop_duplicates(subset='customerId', keep="first")
+    df = customers.assign(customerId=customers['id']
+      .map(orders.set_index('customerId')['id']))
+    df = df[df['customerId'].isna()]
+    df = df[['name']].rename(columns={'name': 'Customers'})
+    return df
+    

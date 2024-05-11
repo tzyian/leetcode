@@ -1,0 +1,6 @@
+// https://leetcode.com/problems/find-users-with-valid-e-mails
+
+import pandas as pd
+
+def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
+    return users[users['mail'].str.match(r'^[A-Za-z][\w_\.-]*@leetcode\.com$')]
