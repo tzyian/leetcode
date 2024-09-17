@@ -1,4 +1,4 @@
-package local
+package leetcode
 
 // @leet start
 
@@ -77,4 +77,3 @@ func swap(arr []int, i, j int) {
 }
 
 // @leet end
-

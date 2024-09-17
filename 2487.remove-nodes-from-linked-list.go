@@ -1,4 +1,4 @@
-package local
+package leetcode
 
 type ListNode struct {
 	Val  int
@@ -44,4 +44,3 @@ func removeNodes(head *ListNode) *ListNode {
 }
 
 // @leet end
-

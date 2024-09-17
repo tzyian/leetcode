@@ -1,4 +1,4 @@
-package local
+package leetcode
 
 // @leet start
 
@@ -55,4 +55,3 @@ func abs(a int) int {
 }
 
 // @leet end
-
