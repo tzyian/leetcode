@@ -9,6 +9,8 @@ class Solution {
     Deque<Integer> schedule;
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
+        // Topo sort using DFS (similar to 2040)
+
         this.schedule = new ArrayDeque<>();
 
         @SuppressWarnings("unchecked")
