@@ -27,6 +27,7 @@ func permuteUnique(nums []int) [][]int {
 			// this is the key line difference here to ensure prev elements are visited
 			// before the current element if they're the same.
 			// This ensures that the prev one can be permuted
+			// Alternatively, if Counter[num] == 0: continue
 			if i > 0 && nums[i-1] == nums[i] && !visited[i-1] {
 				continue
 			}
@@ -46,4 +47,3 @@ func permuteUnique(nums []int) [][]int {
 }
 
 // @leet end
-

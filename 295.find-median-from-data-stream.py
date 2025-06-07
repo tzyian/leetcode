@@ -9,8 +9,8 @@ class MedianFinder:
     #     `PriorityQueue<Integer>(Collections.reverseOrder())`
     #     to avoid overflow issues
     def __init__(self):
-        self.min_heap = []
-        self.max_heap = []
+        self.min_heap = []  # values larger than median
+        self.max_heap = []  # values smaller than median
 
     def addNum(self, num: int) -> None:
         # Python heaps are min heaps by default
