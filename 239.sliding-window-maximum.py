@@ -10,6 +10,7 @@ class Solution:
         # the goal is to find one in linear time...????
         # i rmb there was some recursive trick to this...
         # ok the recursive stack is still k * n = n^2
+        # see the cpp
 
         stack = []  # monotonic non-decreasing stack
         n = len(nums)
@@ -49,4 +50,3 @@ ls = [1, -1]
 k = 1
 x = Solution().maxSlidingWindow(ls, k)
 print(x)
-

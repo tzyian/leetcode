@@ -1,4 +1,5 @@
 // https://leetcode.com/problems/design-a-food-rating-system
+package submissions
 
 import (
 	"cmp"
@@ -134,6 +135,13 @@ func MakeCustomFloatPriorityQueue() *CustomPriorityQueue[float64] {
 	return pq
 }
 
+func compare(i CustomItem[int], j CustomItem[int]) bool {
+	if i.Priority() == j.Priority() {
+		return i.Value() < j.Value()
+	}
+	return i.Priority() > j.Priority()
+}
+
 type FoodRatings struct {
 	CuisinesMap map[string]*CustomPriorityQueue[int]
 	FoodMap     map[string]*Food
@@ -151,13 +159,6 @@ func (food *Food) Priority() int            { return food.Rating }
 func (food *Food) Index() int               { return food.IndexVal }
 func (food *Food) SetPriority(priority int) { food.Rating = priority }
 func (food *Food) SetIndex(index int)       { food.IndexVal = index }
-
-func compare(i CustomItem[int], j CustomItem[int]) bool {
-	if i.Priority() == j.Priority() {
-		return i.Value() < j.Value()
-	}
-	return i.Priority() > j.Priority()
-}
 
 func Constructor(foods []string, cuisines []string, ratings []int) FoodRatings {
 	cuisinesMap := make(map[string]*CustomPriorityQueue[int])

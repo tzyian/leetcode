@@ -9,6 +9,7 @@ class Solution {
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         // O(n) TC from iteration
         // O(n) SC from deque
+        // basically a monotonic queue where the front is always the largest
 
         deque<int> dq;
         vector<int> ans;

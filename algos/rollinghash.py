@@ -1,10 +1,16 @@
-def compute_hash(s, B, M):
+def compute_hash(s: str, B: int, M: int) -> int:
     h = 0
     for c in s:
         h = (h * B + ord(c)) % M
     return h
 
-def rolling_hash(text, window_size, B=256, M=10**9 + 7):
+
+def rolling_hash(
+    text: str,
+    window_size: int,
+    B: int = 256,
+    M: int = 10**9 + 7,
+):
     n = len(text)
     if n < window_size:
         return []
@@ -28,5 +34,8 @@ def rolling_hash(text, window_size, B=256, M=10**9 + 7):
         h = (h * B + right) % M
         h = (h + M) % M  # Ensure non-negative
         hashes.append(h)
+
+        # if h === PATTERN_HASH and text[i:i + window_size] == pattern:
+        #     print(f"Pattern found at index {i}")
 
     return hashes
