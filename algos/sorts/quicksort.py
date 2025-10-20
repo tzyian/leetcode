@@ -5,8 +5,10 @@ def quicksort(arr: list[int], lo: int, hi: int) -> list[int]:
         quicksort(arr, p + 1, hi)
     return arr
 
+
 def swap(arr: list[int], i: int, j: int):
     arr[i], arr[j] = arr[j], arr[i]
+
 
 def partition(arr: list[int], lo: int, hi: int):
     pivot = arr[hi]

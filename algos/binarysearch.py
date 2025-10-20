@@ -38,12 +38,17 @@ def first_valid(array: list, valid: Callable) -> int:
     return lo
 
 
-# allowing a[n-1] to be valid, hence need to check i+1 < len(a)
+# first valid peak e.g. 1 2 3 *5* 5 4 3 2
 def first_valid_bitonic(a):
-    valid = lambda i: a[i] >= (a[i + 1] if i + 1 < len(a) else float("-inf"))
+    # allowing a[n-1] to be valid, hence need to check i+1 < len(a)
+    # valid = lambda i: a[i] >= (a[i + 1] if i + 1 < len(a) else float("-inf"))
+
+    n = len(a)
+    valid = lambda i: 1 <= i <= n - 2 and a[i - 1] <= a[i] >= a[i + 1]
     return first_valid(a, valid)
 
 
+# last valid peak e.g. 1 2 3 5 *5* 4 3 2
 # allowing a[0] to be valid, hence need to check i-1 >= 0
 def last_valid_bitonic(a):
     valid = lambda i: (a[i - 1] if i - 1 >= 0 else float("-inf")) <= a[i]

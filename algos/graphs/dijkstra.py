@@ -1,11 +1,21 @@
 from heapq import heappop, heappush
 
+"""
+Standard: dist[v] = min(dist[v], dist[u] + w(u,v))
+
+Minimax: dist[v] = min(dist[v], max(dist[u], w(u,v)))
+
+Widest: best[v] = max(best[v], min(best[u], cap(u,v)))
+
+Multiplicative: use log transform, then standard.
+"""
+
 
 # use a adjacency matrix to represent the graph
-def dijkstra(graph: list[list[int]], start: int) -> tuple[list[int], list[int]]:
+def dijkstra(graph: list[list[int]], start: int) -> tuple[list[int], dict[int, int]]:
 
     n = len(graph)
-    dists = [float('inf')] * n
+    dists = [10**10] * n
     dists[start] = 0
     prev = {i: -1 for i in range(n)}
     pq = [(0, start)]  # (distance, node)
