@@ -7,7 +7,6 @@ from typing import List
 
 # @leet start
 class NumArray:
-
     def __init__(self, nums: List[int]):
         l = len(nums)
         # a bin heap structure with the original array as leaf nodes

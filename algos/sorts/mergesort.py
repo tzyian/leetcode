@@ -1,3 +1,11 @@
+# Merge Sort questions include:
+
+# 315. Count of Smaller Numbers After Self
+# i.e. count inversions
+
+# 327. Count of Range Sum
+
+
 def merge_sort(arr: list[int]) -> tuple[list[int], int]:
     n = len(arr)
     if n <= 1:

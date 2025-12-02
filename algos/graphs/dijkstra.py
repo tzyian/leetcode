@@ -3,11 +3,11 @@ from heapq import heappop, heappush
 """
 Standard: dist[v] = min(dist[v], dist[u] + w(u,v))
 
-Minimax: dist[v] = min(dist[v], max(dist[u], w(u,v)))
+Minimax:  dist[v] = min(dist[v], max(dist[u], w(u,v)))
 
-Widest: best[v] = max(best[v], min(best[u], cap(u,v)))
+Maximin:  best[v] = max(best[v], min(best[u], w(u,v)))
 
-Multiplicative: use log transform, then standard.
+Multiplicative: use log transform, then standard Dijkstra
 """
 
 

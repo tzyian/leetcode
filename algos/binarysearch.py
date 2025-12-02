@@ -15,6 +15,9 @@ from typing import Callable
 # last_valid: exclusive hi: lo = mid + 1, return lo -1
 # first_valid: exclusive hi: lo = mid + 1, return lo
 
+# there's an upper mid variant and a lower-mid variant when searching for range
+# and there's a
+
 
 def last_valid(arr: list, valid: Callable) -> int:
     lo, hi = 0, len(arr)
@@ -27,8 +30,8 @@ def last_valid(arr: list, valid: Callable) -> int:
     return lo - 1
 
 
-def first_valid(array: list, valid: Callable) -> int:
-    lo, hi = 0, len(array)
+def first_valid(arr: list, valid: Callable) -> int:
+    lo, hi = 0, len(arr)
     while lo < hi:
         mid = lo + (hi - lo) // 2
         if valid(mid):
@@ -87,3 +90,30 @@ def binary_search_float(
         if hi - lo <= eps:
             break
     return (lo + hi) / 2.0
+
+
+# Other binary search templates
+def last_valid_lower_mid(arr: list, valid: Callable) -> int:
+    # inclusive variant
+    lo, hi = 0, len(arr) - 1
+    ans = 0
+    while lo <= hi:
+        mid = (lo + hi) // 2  # LOWER mid
+        if valid(mid):  # mid True → keep it
+            ans = mid
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return ans
+
+
+def last_valid_upper_mid(arr: list, valid: Callable) -> int:
+    n = len(arr)
+    lo, hi = 0, n  # hi inclusive
+    while lo < hi:
+        mid = (lo + hi + 1) // 2  # UPPER mid
+        if valid(mid):  # mid True → keep it
+            lo = mid
+        else:
+            hi = mid - 1
+    return lo
