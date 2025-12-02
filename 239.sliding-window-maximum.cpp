@@ -3,6 +3,8 @@ using std::vector;
 #include <deque>
 using std::deque;
 
+// Similiar question to 1696. Jump Game VI
+
 // @leet start
 class Solution {
   public:

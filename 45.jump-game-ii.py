@@ -33,4 +33,3 @@ print(x)
 n = [2, 3, 0, 1, 4]
 x = Solution().jump(n)
 print(x)
-

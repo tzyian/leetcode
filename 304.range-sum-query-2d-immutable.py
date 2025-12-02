@@ -3,6 +3,7 @@ from typing import List
 
 # @leet start
 class NumMatrix:
+    # 2d prefix sum of top + left - topleft
 
     def __init__(self, matrix: List[List[int]]):
         n = len(matrix)

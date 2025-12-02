@@ -7,6 +7,7 @@ class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:
         # bfs
 
+        # early termination if no index 0
         goals = set(i for i, v in enumerate(arr) if v == 0)
         if not goals:
             return False

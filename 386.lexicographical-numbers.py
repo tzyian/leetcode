@@ -4,6 +4,7 @@ from typing import List
 # @leet start
 class Solution:
     def lexicalOrder(self, n: int) -> List[int]:
+        # Also see 440 which is a similar problem.
         # 1 10 100 1000 10_000 10_001...10_0009 10_0010
         ans = []
         curr = 1

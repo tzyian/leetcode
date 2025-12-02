@@ -4,6 +4,25 @@ from typing import List
 # @leet start
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
+        own = -(10**9)  # cooldown --buy--> *own OR rest
+        sold = -(10**9)  # own --sell--> *sold
+        cd = 0  # sold --wait--> *cooldown OR rest
+        for i, p in enumerate(prices):
+            icd = cd
+            isell = sold
+            ibuy = own
+
+            own = max(ibuy, icd - p)
+            sold = ibuy + p
+            cd = max(isell, icd)
+        return max(sold, cd)
+
+
+# @leet end
+
+
+class SolutionDfs:
+    def maxProfit(self, prices: List[int]) -> int:
         # buy at lowest price
         # sell at highest price
         # take 0 to i as the best result after selling everything
@@ -34,6 +53,3 @@ class Solution:
             return dp[(i, canBuy)]
 
         return dfs(0, True)
-
-
-# @leet end
