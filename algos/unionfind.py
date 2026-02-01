@@ -1,4 +1,4 @@
-UF = {}
+UF = dict()
 size = dict()
 
 
