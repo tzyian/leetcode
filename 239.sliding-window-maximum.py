@@ -1,5 +1,7 @@
 from typing import List
 
+# This question is similar to Jump Game VI (1696)
+
 
 # @leet start
 class Solution:

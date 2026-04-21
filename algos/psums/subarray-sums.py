@@ -14,6 +14,11 @@ ensure the gap is at least 2.
     modular arithmetic
 3381. Maximum Subarray Sum With Length Divisible by K: 
     instead of finding max array starting at i, find max array ending at i and prefix. Then do dp
+
+2435. Paths in Matrix Whose Sum Is Divisible by K
+    similar to 974, but 2D dp
+    dp[i][j][r] = number of paths to (i,j) with (sum until grid[i][j]) % k == r
+    Addition Property: (i % k) + (j % k) = (i + j) % k
 """
 
 # subsums[0] = -1, meaning prefix sum before index 0 has remainder 0.

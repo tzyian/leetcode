@@ -27,9 +27,11 @@ def last_valid(arr: list, valid: Callable) -> int:
             lo = mid + 1
         else:
             hi = mid
-    return lo - 1
+    return lo - 1  # -1 if none valid
 
 
+# e.g. if finding unique target,
+# then valid = target <= nums[mid]:
 def first_valid(arr: list, valid: Callable) -> int:
     lo, hi = 0, len(arr)
     while lo < hi:
@@ -38,7 +40,7 @@ def first_valid(arr: list, valid: Callable) -> int:
             hi = mid
         else:
             lo = mid + 1
-    return lo
+    return lo  # n if none valid
 
 
 # first valid peak e.g. 1 2 3 *5* 5 4 3 2
@@ -93,13 +95,12 @@ def binary_search_float(
 
 
 # Other binary search templates
-def last_valid_lower_mid(arr: list, valid: Callable) -> int:
-    # inclusive variant
+def last_valid_inclusive(arr: list, valid: Callable) -> int:
     lo, hi = 0, len(arr) - 1
-    ans = 0
+    ans = -1
     while lo <= hi:
-        mid = (lo + hi) // 2  # LOWER mid
-        if valid(mid):  # mid True → keep it
+        mid = (lo + hi) // 2
+        if valid(mid):
             ans = mid
             lo = mid + 1
         else:
@@ -107,13 +108,14 @@ def last_valid_lower_mid(arr: list, valid: Callable) -> int:
     return ans
 
 
-def last_valid_upper_mid(arr: list, valid: Callable) -> int:
-    n = len(arr)
-    lo, hi = 0, n  # hi inclusive
-    while lo < hi:
-        mid = (lo + hi + 1) // 2  # UPPER mid
-        if valid(mid):  # mid True → keep it
-            lo = mid
-        else:
+def first_valid_inclusive(arr: list, valid: Callable) -> int:
+    lo, hi = 0, len(arr) - 1
+    ans = len(arr)
+    while lo <= hi:
+        mid = lo + (hi - lo) // 2
+        if valid(mid):
+            ans = mid
             hi = mid - 1
-    return lo
+        else:
+            lo = mid + 1
+    return ans
